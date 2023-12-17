@@ -34,21 +34,11 @@ const WelcomeScreen: React.FC = () => {
                     <TypeAnimation
                         splitter={(str) => str.split("")}
                         sequence={[
-                            "So you've come, Tabitha😏", // Types whole message
+                            "So you've come, Ojou chan😏", // Types whole message
                             5000, // Waits 1s
                             "Well, things got completed a little late...",
                             5000,
-                            "...not too late I hope",
-                            5000,
-                            "I had plans to have some interesting things on here yesterday",
-                            5000,
-                            "But those plans all frustratingly fell through",
-                            5000,
-                            'One was to open a website in here that would allow you "talk" to anime characters like Gojo and Zoro',
-                            5000,
-                            "The other was to use some libraries online that could help you generate anime-like pics from your normal pics",
-                            5000,
-                            "Unfortunately it wasn't working anymore😪",
+                            "...not too late, I hope",
                             5000,
                             "Anyway, enjoy the rest of the show....",
                             5000,
