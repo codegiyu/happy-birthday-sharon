@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 // import galaxy from "@/public/galaxy.gif";
-import gojo from "@/public/gojo.jpg";
+// import gojo from "@/public/gojo.jpg";
 import sharon from "@/public/sharon1.jpeg";
 import { useState, useEffect, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
