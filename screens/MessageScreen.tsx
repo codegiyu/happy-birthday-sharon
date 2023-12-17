@@ -1,10 +1,15 @@
+"use client";
 import Image from "next/image";
-import galaxy from "@/public/galaxy.gif";
-import { useState, useEffect } from "react";
+// import galaxy from "@/public/galaxy.gif";
+import gojo from "@/public/gojo.jpg";
+import { useState, useEffect, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
+import { birthdayMessage } from "@/constants/birthdayMessage";
 
 const MessageScreen: React.FC = () => {
     const [paragraphsAppear, setParagraphsAppear] = useState<{ [key: string]: boolean }>({ 1: false });
+
+    const messageBottomRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -12,49 +17,43 @@ const MessageScreen: React.FC = () => {
         }, 2500)
     }, [])
 
+    useEffect(() => {
+        if (messageBottomRef.current) {
+            messageBottomRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    })
+
     return (
-        <section id="message" className="container-64 w-full h-screen relative ">
-            <Image src={galaxy} alt="" fill className="absolute top-0 left-0 object-cover w-full h-full " />
+        <section id="message" className="container-64 w-full h-screen relative overflow-hidden">
+            <Image src={gojo} alt="" fill className="absolute top-0 left-0 object-cover w-full h-full " />
+            <div className="absolute w-full h-screen top-0 left-0 bg-[#00000099]"></div>
 
-            <div className="py-20 relative grid gap-10 text-fh-3xl md:text-fh-4xl lg:text-fh-5xl text-white font-satisfy z-[51]">
-                {paragraphsAppear[1] ? (
-                    <TypeAnimation 
-                        splitter={(str) => str.split("")}
-                        sequence={[
-                            "My dear Tabitha",
-                            5000,
-                            () => {
-                                console.log("Sequence 1 completed");
-                                setParagraphsAppear((prevState) => ({ ...prevState, 2: true }));
-                            },
-                        ]}
-                        speed={1}
-                        omitDeletionAnimation={true}
-                        preRenderFirstString={false}
-                        wrapper="span"
-                        cursor={false}
-                    />
-                ) : null}
+            <div 
+                className="py-20 max-h-screen overflow-y-auto relative grid gap-10 text-fh-3xl md:text-fh-4xl 
+                lg:text-fh-5xl text-white font-satisfy z-[51]"
+            >
+                {birthdayMessage.map((item, idx, arr) => {
+                    return paragraphsAppear[idx + 1] ? (
+                        <TypeAnimation 
+                            splitter={(str) => str.split("")}
+                            sequence={[
+                                item,
+                                idx < arr.length - 2 ? 5000 : 1000,
+                                () => {
+                                    console.log(`Sequence ${idx + 1} completed`);
+                                    setParagraphsAppear((prevState) => ({ ...prevState, [idx + 2]: true }));
+                                },
+                            ]}
+                            speed={1}
+                            omitDeletionAnimation={true}
+                            preRenderFirstString={false}
+                            wrapper="span"
+                            cursor={false}
+                        />  
+                    ) : null
+                })}
 
-                
-                {paragraphsAppear[2] ? (
-                    <TypeAnimation 
-                        splitter={(str) => str.split("")}
-                        sequence={[
-                            "Once again, happy 15th birthday to you.",
-                            5000,
-                            () => {
-                                console.log("Sequence 2 completed");
-                                setParagraphsAppear((prevState) => ({ ...prevState, 3: true }));
-                            },
-                        ]}
-                        speed={1}
-                        omitDeletionAnimation={true}
-                        preRenderFirstString={false}
-                        wrapper="span"
-                        cursor={false}
-                    />
-                ) : null}
+                <div className="w-full h-1" ref={messageBottomRef}></div>
             </div>
         </section>
     )

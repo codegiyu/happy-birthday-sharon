@@ -40,23 +40,17 @@ const WelcomeScreen: React.FC = () => {
                             5000,
                             "...not too late I hope",
                             5000,
-                            "I wanted to add some fun, anime stuff to keep you entertained till just before midnight",
+                            "I had plans to have some interesting things on here yesterday",
                             5000,
                             "But those plans all frustratingly fell through",
                             5000,
                             'One was to open a website in here that would allow you "talk" to anime characters like Gojo and Zoro',
                             5000,
-                            "Imagine Zoro telling you how he can help you find your path in life",
-                            5000,
-                            "Or Gojo arguing he'd win against anyone even though he was sawed in half by Sukuna",
-                            5000,
-                            "Fun times",
-                            5000,
                             "The other was to use some libraries online that could help you generate anime-like pics from your normal pics",
                             5000,
                             "Unfortunately it wasn't working anymore😪",
                             5000,
-                            "Anyway, enjoy the countdown....",
+                            "Anyway, enjoy the rest of the show....",
                             5000,
                             () => {
                                 console.log("Welcome sequence completed");
@@ -70,8 +64,6 @@ const WelcomeScreen: React.FC = () => {
                         preRenderFirstString={false}
                         wrapper="span"
                         cursor={false}
-                        // className="text-fh-base-mid md:text-fh-2xl-mid lg:text-fh-4xl-mid text-white text-center"
-                        // style={{ fontSize: "1em", display: "inline-block" }}
                     />
                 ) : null}
 

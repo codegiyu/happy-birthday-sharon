@@ -63,7 +63,9 @@ const useCountdownTimer = () => {
         const { hours, minutes, seconds } = timeLeft;
 
         if (hours === "00" && minutes === "00" && seconds === "00") {
-            countDownFinished();
+            setTimeout(() => {
+                countDownFinished();
+            }, 1000)
         }
     }, [timeLeft, countDownFinished])
 

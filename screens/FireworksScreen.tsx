@@ -31,6 +31,7 @@ const FireworksScreen: React.FC = () => {
             fireworks.start();
 
             setTimeout(() => {
+                fireworks.stop();
                 setCurrentScreen("message");
                 // document.getElementById("message")?.scrollIntoView({ behavior: "smooth" })
             }, 20000)
