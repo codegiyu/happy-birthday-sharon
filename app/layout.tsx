@@ -7,10 +7,10 @@ const montserrat = Montserrat({
   subsets: ["latin"]
 })
 
-export const metadata: Metadata = {
-  title: 'Happy Birthday Sharon',
-  description: 'Happy 19th birthday to my dear friend Sharon',
-}
+// export const metadata: Metadata = {
+//   title: 'Happy Birthday Sharon',
+//   description: 'Happy 19th birthday to my dear friend Sharon',
+// }
 
 export default function RootLayout({
   children,
@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Happy Birthday Sharon</title>
         <meta name="description" content="Happy 19th birthday to my dear friend Sharon" />
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content="birthday message wishes" />
