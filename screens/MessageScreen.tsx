@@ -2,6 +2,7 @@
 import Image from "next/image";
 // import galaxy from "@/public/galaxy.gif";
 import gojo from "@/public/gojo.jpg";
+import sharon from "@/public/sharon1.jpeg";
 import { useState, useEffect, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { birthdayMessage } from "@/constants/birthdayMessage";
@@ -25,7 +26,7 @@ const MessageScreen: React.FC = () => {
 
     return (
         <section id="message" className="container-64 w-full h-screen relative overflow-hidden">
-            <Image src={gojo} alt="" fill className="absolute top-0 left-0 object-cover w-full h-full " />
+            <Image src={sharon} alt="" fill className="absolute top-0 left-0 object-cover w-full h-full " />
             <div className="absolute w-full h-screen top-0 left-0 bg-[#00000099]"></div>
 
             <div 
